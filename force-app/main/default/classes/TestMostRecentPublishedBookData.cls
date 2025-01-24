@@ -5,7 +5,7 @@ private class TestMostRecentPublishedBookData{
         Test.startTest();
         // Enqueue the job
         MostRecentPublishedBookData job = new MostRecentPublishedBookData();
-        System.enqueueJob(job);
+        MostRecentPublishedBookData.getMostPublishedData();
         // End the test context
         Test.stopTest();
         System.assert(true, 'Job executed successfully');

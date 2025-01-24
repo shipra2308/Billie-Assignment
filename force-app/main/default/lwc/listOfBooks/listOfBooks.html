@@ -1,0 +1,55 @@
+<template>
+    <lightning-card title="Most Published Books" icon-name="standard:book">
+        <lightning-button slot="actions"  variant="brand" label="Show Books" title="Begins the task" onclick={handleClick}>></lightning-button>
+        <div class="exampleHolder">
+                <template if:true={books.length}>
+                    <table class="slds-table slds-table_cell-buffer slds-table_borderedr">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Account Name">Title</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Account Name">Author</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Account Name">Edition</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={books} for:item="book">
+                               <tr key={book.title} class="slds-hint-parent">
+                                <th data-label="Title" scope="row">
+                                    <div class="slds-truncate">
+                                        <lightning-formatted-text value={book.title}>
+                                        </lightning-formatted-text>
+                                    </div>   
+                                 </th>
+                                 <th data-label="Author" scope="row">
+                                    <div class="slds-truncate">
+                                        <lightning-formatted-text value={book.author}>
+                                        </lightning-formatted-text>
+                                    </div>   
+                                 </th>
+                                 <th data-label="Edition" scope="row">
+                                    <div class="slds-truncate">
+                                        <lightning-formatted-number value={book.edition}>
+                                        </lightning-formatted-number>
+                                    </div>   
+                                 </th>
+                               </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </template>
+                <template if:false={books.length}>
+                    <p class="slds-text-align_center">No books available.</p>
+                </template>
+            <template if:true={showSpinner}>
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </template>
+        </div>
+        
+    </lightning-card>
+</template>

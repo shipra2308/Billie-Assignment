@@ -4,7 +4,6 @@ private class TestMostRecentPublishedBookData{
     static void testQueueableJob() {
         Test.startTest();
         // Enqueue the job
-        MostRecentPublishedBookData job = new MostRecentPublishedBookData();
         MostRecentPublishedBookData.getMostPublishedData();
         // End the test context
         Test.stopTest();
